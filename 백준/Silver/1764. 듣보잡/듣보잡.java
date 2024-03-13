@@ -2,11 +2,11 @@ import java.io.*;
 import java.util.*;
 public class Main {
 //     Hash Table + Linked List + Merge Sort
-	static int index;
     public static void main(String[] args) throws Exception{
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringTokenizer st = new StringTokenizer(br.readLine()," ");
         
+        int index;
         int n = Integer.parseInt(st.nextToken());
         int m = Integer.parseInt(st.nextToken());
         
@@ -51,15 +51,15 @@ public class Main {
 		int nl = left;
 		int nr = mid+1;
 		
-		String[] temp = new String[index];
+		String[] temp = new String[right-left+1];
 		
-		for(int idx = 0; idx < index; idx++) {
+		for(int idx = 0; idx < right-left+1; idx++) {
 			if(nl > mid) temp[idx] = arr[nr++];
 			else if(nr > right) temp[idx] = arr[nl++];
 			else temp[idx] = (arr[nr].compareTo(arr[nl]) < 0) ? arr[nr++] : arr[nl++];
 		}
 		
-		for(int i = 0; i < index; i++) {
+		for(int i = 0; i < right-left+1; i++) {
 			arr[i+left] = temp[i];
 		}
 
