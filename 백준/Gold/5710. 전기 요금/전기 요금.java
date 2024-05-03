@@ -32,31 +32,13 @@ public class Main {
 			while(s<=e) {
 				long mid = (s+e)/2;
 				
-				long mid2=mid;
-				long fee=0;
 				// 전기 요금으로 바꾸기
-				if(mid<=100) fee=2*mid;
-				else if(mid<=10000) {
-					fee+=2*100;
-					mid-=100;
-					fee+=3*mid;
-				}else if(mid<=1000_000) {
-					fee+=2*100;
-					fee+=3*9900;
-					mid-=10000;
-					fee+=5*mid;
-				}else {
-					fee+=2*100;
-					fee+=3*9900;
-					fee+=5*990000;
-					mid-=1000_000;
-					fee+=7*mid;
-				}
+				long fee = money(mid);
 				
-				if(a<fee) e=mid2-1;
-				else if(a>fee) s=mid2+1;
+				if(a<fee) e=mid-1;
+				else if(a>fee) s=mid+1;
 				else {// 값을 찾았을 때
-					total=mid2;
+					total=mid;
 					break;
 				}
 			}
