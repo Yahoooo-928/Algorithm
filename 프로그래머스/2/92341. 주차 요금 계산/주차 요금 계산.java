@@ -49,8 +49,8 @@ class Solution {
         }
         
         if(hm.size()>0){
-            List<String> list = new ArrayList<>(hm.keySet());
-            for(String key:list){
+            //List<String> list = new ArrayList<>(hm.keySet());
+            for(String key:hm.keySet()){
                 String time=hm.get(key);
                 st = new StringTokenizer(time,":");
                 
